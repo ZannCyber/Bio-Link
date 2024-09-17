@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZannMods Linktree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+            
+    
+}
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background-image: url('back.jpg');
+    background-size: cover; /* Membuat gambar memenuhi seluruh area */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Mencegah gambar berulang */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245,245,245,0.493);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(13,7,235,0.1);
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border-color: blue;
+              box-shadow: 0 0 20px rgba(13,7,235,0.1);
+              border: 4px solid;
+            
+            text-align: center;
+            animation: borderColorChange 3s infinite;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        @keyframes borderColorChange {
+            0% {
+                border-color: #00dd4b;
+            }
+            25% {
+                border-color: #ff0000;
+            }
+            50% {
+                border-color: #0000ff;
+            }
+            75% {
+                border-color: #ff9900;
+            }
+            100% {
+                border-color: #00dd4b;
+            }
+        }
+
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about {
+            font-size: 16px;
+            background: #00000087;
+            color: #fafafaca;
+            width: 80%;
+            border-radius: 20px;
+            margin-bottom: 30px;
+          font-family: 'Georgia', serif; /* Menggunakan font Georgia dengan fallback serif */
+        }
+
+        .scroll-button {
+            padding: 10px 30px;
+            background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000); 
+            background-size: 300% 300%; 
+    color: transparent; 
+    animation: animateText 3s linear infinite;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer
+            width: 90%;
+            font-size: 20px;
+          font-family: 'Georgia', serif; /* Menggunakan font Georgia dengan fallback serif */
+        }
+        @keyframes animateText {
+    0% {
+        background-position: 0% 50%; /* Posisi awal gradien */
+    }
+    100% {
+        background-position: 100% 50%; /* Posisi akhir gradien */
+    }
+}
+
+        .scroll-button:hover {
+            background: #0056b3;
+        }
+
+        .social-section {
+            background-color: #0404117f;
+          
+            
+
+        }
+
+        .social-button {
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000); 
+            background-size: 300% 300%; 
+    color: transparent; 
+    animation: animateText 3s linear infinite;
+            color: #007bff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 80%;
+            transition: transform 0.2s ease; /* Transisi halus saat ada*/
+            margin: 10px 0;
+        }
+
+        .social-button:hover {
+            background: #e9ecef;
+        }
+
+        .social-button a {
+            color: #f5f9fe;
+            font-size: 24px;
+            font-family: 'Georgia', serif; /* Menggunakan font Georgia dengan fallback serif */
+            text-decoration: none;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        .back-to-top img {
+            width: 30px;
+            height: 30px;
+        }
+        /* Mengatur font secara global */
+
+
+/* Mengatur tombol mengambang */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #0f02da6d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Menambahkan ikon dengan Font Awesome */
+.icon {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        ZannMods
+    </div>
+    
+   <audio id="audio" src="porto.mp3" autoplay>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    
+    <!-- Tombol mengambang dengan ikon -->
+    <div class="floating-button" onclick="toggleAudio()">
+        <i class="icon">&#9654;</i> <!-- Ikon play, bisa diganti dengan ikon lain -->
+    </div>
+
+
+
+    <!-- Section 1: Logo, About, and Scroll Button -->
+    <div class="section" id="section1">
+        <div class="logo" data-aos="fade-down">
+            <img src="logo.png" alt="Logo ZannMods">
+        </div>
+        <div class="about" data-aos="fade-up">welcome to ZannMods Developmen, all sosmed!</div>
+        <button class="scroll-button" onclick="scrollToSection()">Klik untuk lihat all sosmed</button>
+    </div>
+
+    <!-- Section 2: Social Media Buttons -->
+    <div class="section social-section" id="section2">
+        <button class="social-button"><a href="https://wa.me/6288298793719" target="_blank">WhatsApp</a></button>
+        <button class="social-button"><a href="https://instagram.com/zannxtoya" target="_blank">Instagram</a></button>
+        <button class="social-button"><a href="https://tiktok.com/zannmods" target="_blank">TikTok</a></button>
+        <button class="social-button"><a href="https://youtube.com/zannmods" target="_blank">YouTube</a></button>
+       <button class="social-button"><a href="https://github.com/ZannCyber" target="_blank">Source Free</a></button>
+    </div>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/up.png" alt="Up Icon">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById('audio');
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.icon').innerHTML = '&#10074;&#10074;'; // Ikon pause
+            } else {
+                audio.pause();
+                document.querySelector('.icon').innerHTML = '&#9654;'; // Ikon play
+            }
+        }
+    </script>
+    <script>
+        AOS.init();
+
+        function scrollToSection() {
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToTop() {
+            document.getElementById('section1').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show back to top button when in the second section
+        window.addEventListener('scroll', function() {
+            var section2 = document.getElementById('section2');
+            var backToTop = document.getElementById('backToTop');
+            var section2Top = section2.getBoundingClientRect().top;
+
+            if (section2Top < window.innerHeight / 2) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
